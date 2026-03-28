@@ -1,0 +1,6 @@
+[
+    { "label": "Episodes", "url": "/episodes/" },
+    { "label": "About", "url": "/about/" },
+    { "label": "LinkedIn", "url": "https://linkedin.com/in/ejntaylor", "external": true },
+    { "label": "X", "url": "https://x.com/ejntaylor", "external": true }
+]

@@ -1,0 +1,21 @@
+{
+    "name": "Making Exceptions",
+    "url": "https://makingexceptions.com",
+    "staging": false,
+    "description": "Conversations with technical founders and engineering leaders on the journey from code to company.",
+    "tagline": "From code to company",
+    "author": {
+        "name": "Elliot Taylor",
+        "bio": "Founder of EJNT Ltd. Building SaaS products, writing about engineering leadership, and hosting the Making Exceptions podcast.",
+        "social": {
+            "twitter": "ejntaylor",
+            "linkedin": "ejntaylor",
+            "github": "ejntaylor"
+        }
+    },
+    "subscribe": {
+        "spotify": "#",
+        "apple": "#",
+        "youtube": "#"
+    }
+}

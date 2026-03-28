@@ -1,0 +1,81 @@
+---
+title: "From Code to Company"
+metaTitle: "Making Exceptions"
+metaDescription: "Conversations with technical founders and engineering leaders on the journey from code to company. Hosted by Elliot Taylor."
+layout: layouts/base.njk
+permalink: /
+---
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <p class="hero-label">A podcast for builders</p>
+            <h1 class="hero-title">making<span class="hero-accent">exceptions</span></h1>
+            <p class="hero-tagline">Conversations with technical founders and engineering leaders on the journey from code to company.</p>
+            <div class="hero-cta">
+                <a href="/episodes/" class="btn btn-primary">Browse Episodes</a>
+                <a href="/about/" class="btn btn-secondary">About the Show</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">What to Expect</h2>
+        <div class="pillars">
+            <div class="pillar">
+                <h3>Founder Journeys</h3>
+                <p>How technical people build companies. The messy middle between writing code and running a business.</p>
+            </div>
+            <div class="pillar">
+                <h3>Engineering Leadership</h3>
+                <p>When engineering decisions become business decisions. Architecture, hiring, shipping, and everything in between.</p>
+            </div>
+            <div class="pillar">
+                <h3>Side Projects to Products</h3>
+                <p>The leap from weekend hack to real revenue. What it takes and what it costs.</p>
+            </div>
+            <div class="pillar">
+                <h3>Industry Deep Dives</h3>
+                <p>Security, AI, climate tech, fintech. Technical founders building in the spaces that matter.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if collections.episodes.length > 0 %}
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Latest Episodes</h2>
+        <div class="episode-list">
+            {% for episode in collections.episodes | limit(3) %}
+            <a href="{{ episode.url }}" class="episode-card">
+                <span class="episode-card-number">EP {{ episode.data.episodeNumber }}</span>
+                <h3 class="episode-card-title">{{ episode.data.title }}</h3>
+                {% if episode.data.guest %}
+                <p class="episode-card-guest">with {{ episode.data.guest }}</p>
+                {% endif %}
+                <p class="episode-card-description">{{ episode.data.description }}</p>
+                <span class="episode-card-meta">{{ episode.data.date | dateFormat }}{% if episode.data.duration %} / {{ episode.data.duration | duration }}{% endif %}</span>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="section-link">
+            <a href="/episodes/">All episodes &rarr;</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="section section-subscribe">
+    <div class="container">
+        <h2 class="section-title">Coming Soon</h2>
+        <p class="subscribe-text">Making Exceptions is gearing up for launch. Episodes will be available on Spotify, Apple Podcasts, and YouTube.</p>
+        <div class="subscribe-platforms">
+            <span class="platform-badge">Spotify</span>
+            <span class="platform-badge">Apple Podcasts</span>
+            <span class="platform-badge">YouTube</span>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "https://makingexceptions.netlify.app/*"
+  to = "https://makingexceptions.com/:splat"
+  status = 301
+  force = true

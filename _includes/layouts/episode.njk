@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="episode">
+    <div class="container">
+        <div class="episode-header">
+            <a href="/episodes/" class="back-link">&larr; All Episodes</a>
+            <span class="episode-number">Episode {{ episodeNumber }}</span>
+            <h1>{{ title }}</h1>
+            <div class="episode-meta">
+                <time datetime="{{ date | isoDate }}">{{ date | dateFormat }}</time>
+                {% if duration %}
+                <span class="separator">/</span>
+                <span>{{ duration | duration }}</span>
+                {% endif %}
+            </div>
+            {% if guest %}
+            <p class="episode-guest">with <strong>{{ guest }}</strong>{% if guestRole %} — {{ guestRole }}{% endif %}</p>
+            {% endif %}
+        </div>
+
+        {% if description %}
+        <div class="episode-description">
+            <p>{{ description }}</p>
+        </div>
+        {% endif %}
+
+        <div class="episode-subscribe">
+            <span class="subscribe-label">Listen on</span>
+            <div class="subscribe-links">
+                {% if spotifyUrl %}
+                <a href="{{ spotifyUrl }}" target="_blank" rel="noopener">Spotify</a>
+                {% endif %}
+                {% if appleUrl %}
+                <a href="{{ appleUrl }}" target="_blank" rel="noopener">Apple Podcasts</a>
+                {% endif %}
+                {% if youtubeUrl %}
+                <a href="{{ youtubeUrl }}" target="_blank" rel="noopener">YouTube</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="episode-body">
+            {{ content | safe }}
+        </div>
+
+        <div class="episode-footer">
+            <a href="/episodes/" class="btn">&larr; All Episodes</a>
+        </div>
+    </div>
+</article>
