@@ -1,23 +1,19 @@
 /* ============================================
    Making Exceptions — Dark Theme
-   Opposite of ejntaylor.com's light theme
+   Ghost-inspired: bold typography, generous space
    ============================================ */
 
 :root {
-    --color-bg: #0a0a0a;
-    --color-surface: #141414;
-    --color-surface-hover: #1a1a1a;
-    --color-text: #e4e4e7;
-    --color-text-secondary: #a1a1aa;
-    --color-accent: #e4e4e7;
-    --color-accent-hover: #d4d4d8;
-    --color-border: #27272a;
-    --color-border-hover: #3f3f46;
-    --color-tag-bg: #1e1e22;
-    --color-tag-text: #a1a1aa;
-    --color-code-bg: #18181b;
-    --color-highlight: #22d3ee;
-    --color-highlight-dim: rgba(34, 211, 238, 0.15);
+    --color-bg: #0c0c0c;
+    --color-surface: #151515;
+    --color-surface-hover: #1c1c1c;
+    --color-text: #ededeb;
+    --color-text-secondary: #8a8a8a;
+    --color-accent: #ff7a3d;
+    --color-accent-hover: #ff9562;
+    --color-border: #222222;
+    --color-border-hover: #333333;
+    --color-code-bg: #161616;
 
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -26,12 +22,14 @@
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
-    --space-xl: 4rem;
-    --space-2xl: 6rem;
+    --space-xl: 5rem;
+    --space-2xl: 8rem;
+    --space-3xl: 12rem;
 
-    --radius: 4px;
-    --radius-lg: 6px;
-    --max-width: 640px;
+    --radius: 6px;
+    --radius-lg: 10px;
+    --max-width: 680px;
+    --max-width-wide: 900px;
 }
 
 /* ---- Reset ---- */
@@ -73,28 +71,34 @@ main {
     padding: 0 var(--space-md);
 }
 
+.container-wide {
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
 /* ---- Typography ---- */
 
 h1, h2, h3, h4 {
     font-family: var(--font-sans);
-    font-weight: 600;
-    line-height: 1.2;
+    font-weight: 700;
+    line-height: 1.15;
     color: var(--color-text);
+    letter-spacing: -0.03em;
 }
 
 h1 {
-    font-size: 2rem;
-    letter-spacing: -0.02em;
+    font-size: 3rem;
 }
 
 h2 {
-    font-size: 1.25rem;
+    font-size: 2rem;
     margin-top: var(--space-lg);
     margin-bottom: var(--space-sm);
 }
 
 h3 {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     margin-top: var(--space-md);
     margin-bottom: var(--space-xs);
 }
@@ -104,13 +108,13 @@ p {
 }
 
 a {
-    color: var(--color-highlight);
+    color: var(--color-accent);
     text-decoration: none;
     transition: color 0.15s ease;
 }
 
 a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-hover);
 }
 
 img {
@@ -123,7 +127,6 @@ img {
 
 .site-header {
     padding: var(--space-md) 0;
-    border-bottom: 1px solid var(--color-border);
 }
 
 .header-inner {
@@ -134,23 +137,20 @@ img {
 
 .logo {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-text);
     text-decoration: none;
     letter-spacing: -0.02em;
+    transition: color 0.15s ease;
 }
 
 .logo:hover {
-    color: var(--color-highlight);
+    color: var(--color-accent);
 }
 
 .logo-accent {
-    color: var(--color-highlight);
-}
-
-.logo:hover .logo-accent {
-    color: var(--color-text);
+    color: var(--color-accent);
 }
 
 .nav-links {
@@ -159,8 +159,9 @@ img {
 }
 
 .nav-links a {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--color-text-secondary);
     text-decoration: none;
     transition: color 0.15s ease;
@@ -168,7 +169,7 @@ img {
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-    color: var(--color-text);
+    color: var(--color-accent);
 }
 
 .nav-toggle {
@@ -192,9 +193,8 @@ img {
 /* ---- Footer ---- */
 
 .site-footer {
-    padding: var(--space-lg) 0;
-    border-top: 1px solid var(--color-border);
-    margin-top: var(--space-2xl);
+    padding: var(--space-xl) 0 var(--space-lg);
+    margin-top: var(--space-3xl);
 }
 
 .footer-inner {
@@ -204,8 +204,7 @@ img {
 }
 
 .footer-copy {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--color-text-secondary);
     margin-bottom: 0;
 }
@@ -215,7 +214,7 @@ img {
 }
 
 .footer-copy a:hover {
-    color: var(--color-highlight);
+    color: var(--color-accent);
 }
 
 .footer-links {
@@ -224,76 +223,58 @@ img {
 }
 
 .footer-links a {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--color-text-secondary);
 }
 
 .footer-links a:hover {
-    color: var(--color-highlight);
+    color: var(--color-accent);
 }
 
 /* ---- Hero ---- */
 
 .hero {
-    padding: var(--space-2xl) 0;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.hero-content {
-    max-width: 540px;
+    padding: var(--space-3xl) 0 var(--space-2xl);
 }
 
 .hero-label {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--color-highlight);
+    color: var(--color-accent);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-sm);
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-md);
 }
 
 .hero-title {
-    font-family: var(--font-mono);
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
-    letter-spacing: -0.03em;
-    margin-bottom: var(--space-sm);
-    position: relative;
-}
-
-.hero-accent {
-    color: var(--color-highlight);
-}
-
-.hero-title::after {
-    content: '';
-    display: block;
-    width: 48px;
-    height: 2px;
-    background: var(--color-highlight);
-    margin-top: var(--space-sm);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    max-width: 800px;
+    margin-bottom: var(--space-lg);
 }
 
 .hero-tagline {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
-    margin-bottom: var(--space-md);
+    max-width: 560px;
 }
 
 .hero-cta {
     display: flex;
     gap: var(--space-sm);
-    margin-top: var(--space-md);
+    margin-top: var(--space-lg);
 }
 
 /* ---- Buttons ---- */
 
 .btn {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    padding: 0.6rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
     border-radius: var(--radius);
     text-decoration: none;
     transition: all 0.15s ease;
@@ -301,13 +282,13 @@ img {
 }
 
 .btn-primary {
-    background: var(--color-highlight);
-    color: var(--color-bg);
+    background: var(--color-accent);
+    color: #fff;
 }
 
 .btn-primary:hover {
-    background: var(--color-accent);
-    color: var(--color-bg);
+    background: var(--color-accent-hover);
+    color: #fff;
 }
 
 .btn-secondary {
@@ -324,36 +305,31 @@ img {
 /* ---- Sections ---- */
 
 .section {
-    padding: var(--space-xl) 0;
-}
-
-.section + .section {
-    border-top: 1px solid var(--color-border);
+    padding: var(--space-2xl) 0;
 }
 
 .section-title {
-    font-family: var(--font-mono);
     font-size: 0.8rem;
+    font-family: var(--font-mono);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
     margin-top: 0;
 }
 
 .section-link {
-    margin-top: var(--space-md);
+    margin-top: var(--space-lg);
 }
 
 .section-link a {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--color-text-secondary);
 }
 
 .section-link a:hover {
-    color: var(--color-highlight);
+    color: var(--color-accent);
 }
 
 /* ---- Pillars ---- */
@@ -361,33 +337,32 @@ img {
 .pillars {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
+    gap: var(--space-lg);
 }
 
 .pillar {
-    padding: var(--space-md);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    transition: border-color 0.15s ease;
+    padding: var(--space-lg) var(--space-md);
+    border-top: 2px solid var(--color-border);
+    transition: border-color 0.2s ease;
 }
 
 .pillar:hover {
-    border-color: var(--color-border-hover);
+    border-color: var(--color-accent);
 }
 
 .pillar h3 {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-top: 0;
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
     color: var(--color-text);
+    letter-spacing: -0.02em;
 }
 
 .pillar p {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 0;
 }
 
@@ -401,48 +376,44 @@ img {
 
 .episode-card {
     display: block;
-    padding: var(--space-md) 0;
+    padding: var(--space-lg) 0;
     border-bottom: 1px solid var(--color-border);
     text-decoration: none;
-    transition: background-color 0.15s ease;
 }
 
 .episode-card:first-child {
     border-top: 1px solid var(--color-border);
 }
 
-.episode-card:hover {
-    background-color: var(--color-surface);
-}
-
 .episode-card:hover .episode-card-title {
-    color: var(--color-highlight);
+    color: var(--color-accent);
 }
 
 .episode-card-number {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--color-highlight);
+    color: var(--color-accent);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .episode-card-title {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-text);
     margin: var(--space-xs) 0;
     transition: color 0.15s ease;
+    letter-spacing: -0.02em;
 }
 
 .episode-card-guest {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
     margin-bottom: var(--space-xs);
 }
 
 .episode-card-description {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin-bottom: var(--space-xs);
@@ -450,7 +421,7 @@ img {
 
 .episode-card-meta {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--color-text-secondary);
 }
 
@@ -458,12 +429,17 @@ img {
 
 .section-subscribe {
     text-align: center;
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--color-border);
 }
 
-.subscribe-text {
-    color: var(--color-text-secondary);
-    max-width: 480px;
-    margin: 0 auto var(--space-md);
+.subscribe-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-top: 0;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
 }
 
 .subscribe-platforms {
@@ -474,26 +450,33 @@ img {
 }
 
 .platform-badge {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.6rem 1.4rem;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: 100px;
     color: var(--color-text-secondary);
+    transition: all 0.15s ease;
+}
+
+.platform-badge:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 /* ---- Page Header ---- */
 
 .page-header {
-    padding: var(--space-xl) 0 var(--space-lg);
-    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-2xl) 0 var(--space-xl);
 }
 
 .page-header h1 {
-    margin-bottom: var(--space-xs);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--space-sm);
 }
 
 .page-header p {
+    font-size: 1.15rem;
     color: var(--color-text-secondary);
     margin-bottom: 0;
 }
@@ -502,24 +485,26 @@ img {
 
 .empty-state {
     text-align: center;
-    padding: var(--space-xl) 0;
+    padding: var(--space-2xl) 0;
 }
 
 .empty-state-icon {
     font-size: 3rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
 .empty-state h2 {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     margin-top: 0;
     margin-bottom: var(--space-sm);
 }
 
 .empty-state p {
+    font-size: 1rem;
     color: var(--color-text-secondary);
-    max-width: 400px;
+    max-width: 440px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
 /* ---- About ---- */
@@ -529,14 +514,15 @@ img {
 }
 
 .about-content p {
+    font-size: 1.05rem;
     color: var(--color-text-secondary);
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 .about-content h2 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: var(--color-text);
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
     margin-bottom: var(--space-sm);
 }
 
@@ -547,34 +533,34 @@ img {
 }
 
 .back-link {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--color-text-secondary);
     display: inline-block;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
 }
 
 .back-link:hover {
-    color: var(--color-highlight);
+    color: var(--color-accent);
 }
 
 .episode-number {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--color-highlight);
+    color: var(--color-accent);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     display: block;
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
 }
 
 .episode-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
     margin-bottom: var(--space-sm);
 }
 
 .episode-meta {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--color-text-secondary);
 }
 
@@ -584,7 +570,7 @@ img {
 }
 
 .episode-guest {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text-secondary);
     margin-top: var(--space-sm);
 }
@@ -594,14 +580,14 @@ img {
 }
 
 .episode-description {
-    padding: var(--space-md) 0;
+    padding: var(--space-lg) 0;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
 }
 
 .episode-description p {
+    font-size: 1.1rem;
     color: var(--color-text-secondary);
-    font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 0;
 }
@@ -628,34 +614,34 @@ img {
 }
 
 .subscribe-links a {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--color-highlight);
-}
-
-.subscribe-links a:hover {
+    font-size: 0.85rem;
     color: var(--color-accent);
 }
 
+.subscribe-links a:hover {
+    color: var(--color-accent-hover);
+}
+
 .episode-body {
-    padding: var(--space-lg) 0;
+    padding: var(--space-xl) 0;
 }
 
 .episode-body h2 {
-    font-size: 1.15rem;
-    margin-top: var(--space-lg);
+    font-size: 1.5rem;
+    margin-top: var(--space-xl);
     margin-bottom: var(--space-sm);
 }
 
 .episode-body h3 {
-    font-size: 1rem;
-    margin-top: var(--space-md);
+    font-size: 1.15rem;
+    margin-top: var(--space-lg);
     margin-bottom: var(--space-xs);
 }
 
 .episode-body p {
+    font-size: 1.05rem;
     color: var(--color-text-secondary);
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 .episode-body ul,
@@ -667,15 +653,17 @@ img {
 
 .episode-body li {
     margin-bottom: var(--space-xs);
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 1.05rem;
 }
 
 .episode-body blockquote {
-    border-left: 2px solid var(--color-highlight);
+    border-left: 3px solid var(--color-accent);
     padding-left: var(--space-md);
-    margin: var(--space-md) 0;
+    margin: var(--space-lg) 0;
     color: var(--color-text-secondary);
     font-style: italic;
+    font-size: 1.1rem;
 }
 
 .episode-body code {
@@ -692,7 +680,7 @@ img {
     border-radius: var(--radius-lg);
     padding: var(--space-md);
     overflow-x: auto;
-    margin: var(--space-md) 0;
+    margin: var(--space-lg) 0;
 }
 
 .episode-body pre code {
@@ -701,7 +689,7 @@ img {
 }
 
 .episode-footer {
-    padding-top: var(--space-lg);
+    padding-top: var(--space-xl);
     border-top: 1px solid var(--color-border);
 }
 
@@ -709,16 +697,13 @@ img {
 
 @media (max-width: 768px) {
     :root {
-        --space-xl: 3rem;
-        --space-2xl: 4rem;
+        --space-xl: 3.5rem;
+        --space-2xl: 5rem;
+        --space-3xl: 7rem;
     }
 
     h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .nav-toggle {
@@ -768,8 +753,8 @@ img {
         align-items: flex-start;
     }
 
-    .subscribe-platforms {
-        justify-content: flex-start;
+    .episode-card-title {
+        font-size: 1.2rem;
     }
 }
 
