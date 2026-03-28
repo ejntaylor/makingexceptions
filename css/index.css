@@ -142,15 +142,21 @@ img {
     color: var(--color-text);
     text-decoration: none;
     letter-spacing: -0.02em;
-    transition: color 0.15s ease;
 }
 
 .logo:hover {
-    color: var(--color-accent);
+    color: var(--color-text);
 }
 
-.logo-accent {
+.logo-exception {
     color: var(--color-accent);
+    position: relative;
+    top: -0.15em;
+    transition: top 0.2s ease;
+}
+
+.logo:hover .logo-exception {
+    top: -0.25em;
 }
 
 .nav-links {
