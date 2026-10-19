@@ -6,34 +6,36 @@ permalink: /episodes/
 ---
 
 <section class="page-header">
-    <div class="container-wide">
-        <h1>Episodes</h1>
-        <p>Conversations with the people building what's next.</p>
+    <div class="wrap">
+        <span class="mono">Stack trace &middot; {{ collections.episodes.length }} episode{% if collections.episodes.length != 1 %}s{% endif %}</span>
+        <h1 class="page-title">Episodes</h1>
+        <p class="page-intro">Conversations with the people building what's next. Newest frame first.</p>
     </div>
 </section>
 
 <section class="section">
-    <div class="container-wide">
+    <div class="wrap">
         {% if collections.episodes.length > 0 %}
-        <div class="episode-list">
-            {% for episode in collections.episodes %}
-            <a href="{{ episode.url }}" class="episode-card">
-                <span class="episode-card-number">EP {{ episode.data.episodeNumber }}</span>
-                <h3 class="episode-card-title">{{ episode.data.title }}</h3>
-                {% if episode.data.guest %}
-                <p class="episode-card-guest">with {{ episode.data.guest }}</p>
-                {% endif %}
-                <p class="episode-card-description">{{ episode.data.description }}</p>
-                <span class="episode-card-meta">{{ episode.data.date | dateFormat }}{% if episode.data.duration %} / {{ episode.data.duration | duration }}{% endif %}</span>
-            </a>
-            {% endfor %}
-        </div>
+        {% set traceEpisodes = collections.episodes %}
+        {% include "partials/trace.njk" %}
         {% else %}
-        <div class="empty-state">
-            <p class="empty-state-icon">&#127911;</p>
-            <h2>Episodes are on the way</h2>
-            <p>We're recording the first batch of conversations now. Check back soon, or follow along on <a href="https://linkedin.com/in/{{ site.author.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> for updates.</p>
+        <div class="empty">
+            <div class="empty-head mono">
+                <span><span class="err">EpisodeNotFoundException</span></span>
+                <span>episodes.njk:1</span>
+            </div>
+            <div class="empty-body">
+                <h2>Nothing's thrown yet. The first batch is recording now.</h2>
+                <p>Season 01 is in production. Follow along on <a href="https://linkedin.com/in/{{ site.author.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> or <a href="https://x.com/{{ site.author.social.twitter }}" target="_blank" rel="noopener">X</a> to hear the moment it drops.</p>
+                <p class="empty-trace mono">
+                    #0 <b>Studio::record()</b> in progress<br>
+                    #1 <b>Edit::cut()</b> queued<br>
+                    #2 <b>Feed::publish()</b> queued
+                </p>
+            </div>
         </div>
         {% endif %}
     </div>
 </section>
+
+{% include "partials/listen.njk" %}

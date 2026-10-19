@@ -30,7 +30,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addFilter("year", function (date) {
-        return new Date(date).getFullYear();
+        return (date ? new Date(date) : new Date()).getFullYear();
     });
 
     eleventyConfig.addFilter("duration", function (seconds) {
@@ -59,6 +59,10 @@ module.exports = function (eleventyConfig) {
         return firstParagraph.length > 200
             ? firstParagraph.substring(0, 200) + "..."
             : firstParagraph;
+    });
+
+    eleventyConfig.addFilter("pad", function (number) {
+        return String(number).padStart(2, "0");
     });
 
     eleventyConfig.addFilter("episodeSlug", function (number) {

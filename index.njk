@@ -7,71 +7,113 @@ permalink: /
 ---
 
 <section class="hero">
-    <div class="container-wide">
-        <p class="hero-label">A podcast for builders</p>
-        <h1 class="hero-title">Conversations about the journey from code to company.</h1>
-        <p class="hero-tagline">Technical founders and engineering leaders share how they built what they built, and what they learned along the way.</p>
-        <div class="hero-cta">
-            <a href="/episodes/" class="btn btn-primary">Browse Episodes</a>
-            <a href="/about/" class="btn btn-secondary">About the Show</a>
+    <div class="wrap">
+        <div class="hero-meta mono">
+            <span>A podcast for builders</span>
+            <span>Season 01</span>
+            <span class="live">Recording now</span>
+        </div>
+
+        <div class="hero-stage">
+            <h1 class="hero-title">
+                <span>Making</span>
+                <span><span class="ex">E</span>xceptions</span>
+            </h1>
+
+            <div class="sticker" aria-hidden="true">
+                <svg viewBox="0 0 100 100">
+                    <defs>
+                        <path id="sticker-ring" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/>
+                    </defs>
+                    <text><textPath href="#sticker-ring" textLength="236">Season 01 &#8226; On air soon &#8226; Season 01 &#8226; On air soon &#8226;</textPath></text>
+                </svg>
+                <span class="sticker-mark">e</span>
+            </div>
+        </div>
+
+        <div class="hero-grid">
+            <p class="hero-lede">Technical founders and engineering leaders on the journey from <span class="serif">code to company.</span></p>
+            <div class="hero-side">
+                <p>Long-form conversations about how they built what they built, the decisions that shaped them, and what they wish they'd known sooner.</p>
+                <div>
+                    <a href="/episodes/" class="btn btn-signal">Start listening <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+        {% for i in range(0, 2) %}
+        <span>Founder journeys</span>
+        <span>Engineering leadership</span>
+        <span>Side projects &rarr; products</span>
+        <span>Security</span>
+        <span>AI</span>
+        <span>Climate tech</span>
+        <span>Fintech</span>
+        <span>Hiring</span>
+        <span>Shipping</span>
+        {% endfor %}
+    </div>
+</div>
+
+<section class="section section-dark">
+    <div class="wrap">
+        <p class="section-label mono">Why this show</p>
+        <p class="manifesto">
+            <span class="struck">Learn to code. Get promoted. Manage people. Repeat.</span>
+            Some engineers break the loop and build companies instead. This show is about <span class="serif">the exceptions.</span>
+        </p>
+        <div class="manifesto-foot">
+            <p>Not the pitch decks or the funding rounds. The actual work: the architecture call that shaped a company, the side project that became a product, the moment a builder realised they had to learn to lead.</p>
         </div>
     </div>
 </section>
 
 <section class="section">
-    <div class="container-wide">
-        <div class="pillars">
-            <div class="pillar">
-                <h3>Founder Journeys</h3>
+    <div class="wrap">
+        <p class="section-label mono">What we catch</p>
+        <div class="catches">
+            <div class="catch">
+                <span class="catch-code mono">catch (<b>FounderJourney</b> $e)</span>
+                <span class="catch-num">01</span>
+                <h3>Founder journeys</h3>
                 <p>How technical people build companies. The messy middle between writing code and running a business.</p>
             </div>
-            <div class="pillar">
-                <h3>Engineering Leadership</h3>
+            <div class="catch">
+                <span class="catch-code mono">catch (<b>Leadership</b> $e)</span>
+                <span class="catch-num">02</span>
+                <h3>Engineering leadership</h3>
                 <p>When engineering decisions become business decisions. Architecture, hiring, shipping, and everything in between.</p>
             </div>
-            <div class="pillar">
-                <h3>Side Projects to Products</h3>
+            <div class="catch">
+                <span class="catch-code mono">catch (<b>SideProject</b> $e)</span>
+                <span class="catch-num">03</span>
+                <h3>Side projects to products</h3>
                 <p>The leap from weekend hack to real revenue. What it takes and what it costs.</p>
             </div>
-            <div class="pillar">
-                <h3>Industry Deep Dives</h3>
+            <div class="catch">
+                <span class="catch-code mono">catch (<b>DeepDive</b> $e)</span>
+                <span class="catch-num">04</span>
+                <h3>Industry deep dives</h3>
                 <p>Security, AI, climate tech, fintech. Technical founders building in the spaces that matter.</p>
             </div>
         </div>
     </div>
 </section>
 
-{% if collections.episodes.length > 0 %}
 <section class="section">
-    <div class="container">
-        <h2 class="section-title">Latest Episodes</h2>
-        <div class="episode-list">
-            {% for episode in collections.episodes | limit(3) %}
-            <a href="{{ episode.url }}" class="episode-card">
-                <span class="episode-card-number">EP {{ episode.data.episodeNumber }}</span>
-                <h3 class="episode-card-title">{{ episode.data.title }}</h3>
-                {% if episode.data.guest %}
-                <p class="episode-card-guest">with {{ episode.data.guest }}</p>
-                {% endif %}
-                <p class="episode-card-description">{{ episode.data.description }}</p>
-                <span class="episode-card-meta">{{ episode.data.date | dateFormat }}{% if episode.data.duration %} / {{ episode.data.duration | duration }}{% endif %}</span>
-            </a>
-            {% endfor %}
-        </div>
-        <div class="section-link">
-            <a href="/episodes/">All episodes &rarr;</a>
+    <div class="wrap">
+        <p class="section-label mono">Stack trace &middot; latest episodes</p>
+        {% set traceEpisodes = collections.episodes | limit(5) %}
+        {% include "partials/trace.njk" %}
+        <div class="trace-foot">
+            <p class="mono">{% if collections.episodes.length > 0 %}{{ collections.episodes.length }} frames and counting{% else %}// first episodes land soon{% endif %}</p>
+            <a href="/episodes/" class="btn btn-ghost">All episodes <span aria-hidden="true">&rarr;</span></a>
         </div>
     </div>
 </section>
-{% endif %}
 
-<section class="section section-subscribe">
-    <div class="container-wide">
-        <h2 class="subscribe-heading">Coming soon to</h2>
-        <div class="subscribe-platforms">
-            <span class="platform-badge">Spotify</span>
-            <span class="platform-badge">Apple Podcasts</span>
-            <span class="platform-badge">YouTube</span>
-        </div>
-    </div>
-</section>
+{% include "partials/listen.njk" %}

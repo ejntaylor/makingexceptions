@@ -2,51 +2,44 @@
 layout: layouts/base.njk
 ---
 
-<article class="episode">
-    <div class="container">
-        <div class="episode-header">
-            <a href="/episodes/" class="back-link">&larr; All Episodes</a>
-            <span class="episode-number">Episode {{ episodeNumber }}</span>
-            <h1>{{ title }}</h1>
-            <div class="episode-meta">
-                <time datetime="{{ date | isoDate }}">{{ date | dateFormat }}</time>
-                {% if duration %}
-                <span class="separator">/</span>
-                <span>{{ duration | duration }}</span>
-                {% endif %}
+<article>
+    <header class="episode-hero">
+        <div class="wrap">
+            <div class="episode-top mono">
+                <a href="/episodes/">&larr; Stack trace</a>
+                <time datetime="{{ date | isoDate }}">{{ date | dateFormat }}{% if duration %} &middot; {{ duration | duration }}{% endif %}</time>
             </div>
+
+            <span class="episode-number-big" aria-label="Episode {{ episodeNumber }}">#{{ episodeNumber | pad }}</span>
+            <h1 class="episode-title">{{ title }}</h1>
             {% if guest %}
-            <p class="episode-guest">with <strong>{{ guest }}</strong>{% if guestRole %} — {{ guestRole }}{% endif %}</p>
+            <p class="episode-guest">with {{ guest }}{% if guestRole %}<small>{{ guestRole }}</small>{% endif %}</p>
             {% endif %}
-        </div>
 
-        {% if description %}
-        <div class="episode-description">
-            <p>{{ description }}</p>
-        </div>
-        {% endif %}
-
-        <div class="episode-subscribe">
-            <span class="subscribe-label">Listen on</span>
-            <div class="subscribe-links">
-                {% if spotifyUrl %}
-                <a href="{{ spotifyUrl }}" target="_blank" rel="noopener">Spotify</a>
-                {% endif %}
-                {% if appleUrl %}
-                <a href="{{ appleUrl }}" target="_blank" rel="noopener">Apple Podcasts</a>
-                {% endif %}
-                {% if youtubeUrl %}
-                <a href="{{ youtubeUrl }}" target="_blank" rel="noopener">YouTube</a>
-                {% endif %}
+            <div class="episode-bar">
+                <span class="mono">Listen on</span>
+                {% if spotifyUrl %}<a href="{{ spotifyUrl }}" class="btn btn-signal" target="_blank" rel="noopener">Spotify</a>{% endif %}
+                {% if appleUrl %}<a href="{{ appleUrl }}" class="btn" target="_blank" rel="noopener">Apple Podcasts</a>{% endif %}
+                {% if youtubeUrl %}<a href="{{ youtubeUrl }}" class="btn" target="_blank" rel="noopener">YouTube</a>{% endif %}
             </div>
         </div>
+    </header>
 
-        <div class="episode-body">
-            {{ content | safe }}
-        </div>
+    <section class="section">
+        <div class="wrap prose-grid">
+            <aside class="prose-aside mono">
+                <div class="sticky">
+                    <span>Episode {{ episodeNumber }}</span>
+                    {% if guest %}<span>{{ guest }}</span>{% endif %}
+                </div>
+            </aside>
 
-        <div class="episode-footer">
-            <a href="/episodes/" class="btn">&larr; All Episodes</a>
+            <div class="prose">
+                {% if description %}<p class="lead">{{ description }}</p>{% endif %}
+                {{ content | safe }}
+            </div>
         </div>
-    </div>
+    </section>
 </article>
+
+{% include "partials/listen.njk" %}

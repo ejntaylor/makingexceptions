@@ -1,11 +1,26 @@
 <footer class="site-footer">
-    <div class="container-wide">
-        <div class="footer-inner">
-            <p class="footer-copy">&copy; {{ "" | year }} {{ site.name }}. Hosted by <a href="https://ejntaylor.com" target="_blank" rel="noopener">Elliot Taylor</a>.</p>
-            <div class="footer-links">
-                <a href="https://linkedin.com/in/{{ site.author.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://x.com/{{ site.author.social.twitter }}" target="_blank" rel="noopener">X</a>
+    <div class="wrap">
+        <div class="footer-top">
+            <div class="footer-col">
+                <p class="footer-pitch">For the engineers who went off-script.</p>
             </div>
+            <div class="footer-col">
+                <span class="mono">Show</span>
+                <a href="/episodes/">Episodes</a>
+                <a href="/about/">About</a>
+            </div>
+            <div class="footer-col">
+                <span class="mono">Elsewhere</span>
+                <a href="https://linkedin.com/in/{{ site.author.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://x.com/{{ site.author.social.twitter }}" target="_blank" rel="noopener">X / Twitter</a>
+            </div>
+        </div>
+
+        <p class="footer-wordmark" aria-hidden="true">making <span class="ex">e</span>xceptions</p>
+
+        <div class="footer-bottom mono">
+            <span>&copy; {{ "" | year }} {{ site.name }} &middot; Hosted by <a href="https://ejntaylor.com" target="_blank" rel="noopener">{{ site.author.name }}</a></span>
+            <span>Process finished with exit code 0</span>
         </div>
     </div>
 </footer>

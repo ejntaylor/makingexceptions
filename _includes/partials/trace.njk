@@ -1,0 +1,33 @@
+<ol class="trace">
+    {% if traceEpisodes.length > 0 %}
+    {% for episode in traceEpisodes %}
+    <li class="frame">
+        <a href="{{ episode.url }}">
+            <span class="frame-num">#{{ episode.data.episodeNumber | pad }}</span>
+            <span class="frame-title">
+                {{ episode.data.title }}
+                {% if episode.data.guest %}<span class="frame-guest">with {{ episode.data.guest }}</span>{% endif %}
+            </span>
+            <span class="frame-meta">{{ episode.data.date | dateFormat }}{% if episode.data.duration %}<br>{{ episode.data.duration | duration }}{% endif %}</span>
+            <span class="frame-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+    </li>
+    {% endfor %}
+    {% else %}
+    <li class="frame-pending">
+        <span class="frame-num">#01</span>
+        <span class="frame-title">First guest, announcing soon</span>
+        <span class="frame-meta mono">&#9679; Recording</span>
+    </li>
+    <li class="frame-pending">
+        <span class="frame-num">#02</span>
+        <span class="frame-title">Unhandled</span>
+        <span class="frame-meta mono">Queued</span>
+    </li>
+    <li class="frame-pending">
+        <span class="frame-num">#03</span>
+        <span class="frame-title">Unhandled</span>
+        <span class="frame-meta mono">Queued</span>
+    </li>
+    {% endif %}
+</ol>

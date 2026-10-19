@@ -1,0 +1,21 @@
+<section class="listen">
+    <div class="wrap">
+        <p class="section-label mono">Subscribe</p>
+        <h2 class="listen-title">Tune <span class="serif">in.</span></h2>
+    </div>
+    <ul class="platforms">
+        {% for platform in [
+            { name: "Spotify", url: site.subscribe.spotify },
+            { name: "Apple Podcasts", url: site.subscribe.apple },
+            { name: "YouTube", url: site.subscribe.youtube }
+        ] %}
+        <li>
+            {% if platform.url and platform.url != "#" %}
+            <a href="{{ platform.url }}" target="_blank" rel="noopener">{{ platform.name }} <span aria-hidden="true">&nearr;</span></a>
+            {% else %}
+            <span>{{ platform.name }} <span class="mono">Soon</span></span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
